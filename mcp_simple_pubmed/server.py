@@ -163,10 +163,7 @@ async def get_paper_fulltext(pmid: str) -> str:
         raise ValueError(f"Error retrieving full text: {str(e)}")
 
 
-@app.resource(
-    "pubmed://{pmid}/{resource_type}",
-    annotations={"title": "Get PubMed Article Content (Abstract or Full Text)"}
-)
+@app.resource("pubmed://{pmid}/{resource_type}")
 async def read_pubmed_resource(pmid: str, resource_type: str) -> str:
     """
     Reads different types of content for a given PubMed ID (PMID).
