@@ -100,6 +100,7 @@ You can also run it from the Finder:
 
 ![image](MacOs_certificates_solution.jpg)
 
+If you perform this change while Claude Desktop is open you will need to quit it and start it again for it to take effect. 
 
 ## License
 
