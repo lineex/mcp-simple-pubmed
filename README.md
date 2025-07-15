@@ -87,6 +87,20 @@ Add to your Claude Desktop configuration (`claude_desktop_config.json`):
 }
 ```
 
+### macOS SSL Certificate Fix
+
+If you encounter SSL certificate verification errors on macOS (such as `[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain`), you need to install the proper certificate bundle:
+
+```bash
+/Applications/Python\ 3.13/Install\ Certificates.command
+```
+Replace `3.13` with your Python version number. This script comes with Python installations from python.org.
+
+You can also run it from the Finder:
+
+![image](MacOs_certificates_solution.jpg)
+
+
 ## License
 
 MIT License
