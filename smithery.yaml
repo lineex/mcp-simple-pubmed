@@ -1,20 +1,11 @@
-# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
-
-startCommand:
-  type: stdio
-  configSchema:
-    # JSON Schema defining the configuration options for the MCP.
-    type: object
-    required:
-      - pubmedEmail
-    properties:
-      pubmedEmail:
-        type: string
-        description: Your email address, required by NCBI for accessing the PubMed API.
-      pubmedApiKey:
-        type: string
-        description: Optional API key for higher rate limits on PubMed API requests.
-  commandFunction:
-    # A function that produces the CLI command to start the MCP on stdio.
-    |-
-    (config) => ({ command: 'python', args: ['-m', 'mcp_simple_pubmed'], env: { PUBMED_EMAIL: config.pubmedEmail, PUBMED_API_KEY: config.pubmedApiKey || '' } })
+name: "mcp-simple-pubmed"
+description: "Streamable HTTP server for PubMed access"
+command: "docker run -e PUBMED_EMAIL=$PUBMED_EMAIL -e PUBMED_API_KEY=$PUBMED_API_KEY -p 8000:8000 mcp-simple-pubmed"
+args: []
+env:
+  PUBMED_EMAIL:
+    description: "Your email address (required by NCBI)"
+    required: true
+  PUBMED_API_KEY:
+    description: "Optional API key for higher rate limits"
+    required: false
