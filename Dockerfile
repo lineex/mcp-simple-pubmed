@@ -4,16 +4,18 @@ FROM python:3.10-slim
 
 # Set environment variables for email and optional API key
 ENV PUBMED_EMAIL=your-email@example.com
-# ENV PUBMED_API_KEY=your-api-key  # Uncomment and set if you have an API key
+# Uncomment and set if you have an API key
+ENV PUBMED_API_KEY=your-api-key  
 
 # Set the working directory
 WORKDIR /app
 
 # Copy project files
-COPY . .
+COPY requirements.txt .
+
 
 # Install dependencies
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 # Define entrypoint
-ENTRYPOINT ["python", "-m", "mcp_simple_pubmed"]
+CMD ["python", "-m", "mcp_simple_pubmed"]
