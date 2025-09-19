@@ -18,4 +18,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 # Define entrypoint
-CMD ["python", "-m", "mcp_simple_pubmed"]
+CMD ["python", "streamable_server.py"]
